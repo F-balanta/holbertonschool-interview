@@ -1,54 +1,24 @@
-#include "binary_trees.h"
-
-heap_t *find_parent_node(heap_t **root, int value);
-
+#include"binary_trees.h"
 /**
- * heap_insert - Inserts a value into a Max Binary Heap
- * @root: A double pointer to the root node of the Heap
- * @value: The value to store in the node to be inserted
+ * heap_insert - function that inserts a value into a Binary Heap
+ * @root: is a double pointer to the root node of the Heap
+ * @value: is the value store in the node to be inserted
  *
- * Return: A pointer to the inserted node or NULL if failed
- */
+ * Return: a pointer to the inserted node, or NULL on failure
+ **/
 heap_t *heap_insert(heap_t **root, int value)
 {
-	binary_tree_t *new;
-	binary_tree_t *parent;
+	heap_t *new_node = NULL;
 
-	parent = find_parent_node(root, value);
+	new_node = malloc(sizeof(*new_node));
 
-	new = binary_tree_node(parent, value);
-
-	if (parent == NULL)
-	{
-		*root = new;
-		return (new);
-	}
-	return (NULL);
-}
-
-/**
- * find_parent_node - Returns the parent node of node to insert
- * @root: A double pointer to the root node of the Heap
- * @value: The value to compare to find parent node
- *
- * Return: A pointer to the parent node or NULL if root
- */
-heap_t *find_parent_node(heap_t **root, int value)
-{
-	binary_tree_t *temp = *root;
-	binary_tree_t *left = NULL;
-	binary_tree_t *right = NULL;
-
-	if (*root == NULL)
+	if (!new_node)
 		return (NULL);
 
-	if (temp->n < value)
-		return (temp);
+	new_node->n = value;
+	new_node->left = NULL;
+	new_node->right = NULL;
+	new_node->parent = *root;
 
-	while (temp)
-	{
-		return (left);
-	}
-
-	return (right);
+	return (new_node);
 }
