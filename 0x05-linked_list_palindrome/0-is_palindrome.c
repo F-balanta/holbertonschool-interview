@@ -72,6 +72,12 @@ void free_listint(listint_t *head)
         free(current);
     }
 }
+/**
+ * is_palindrome - checks if a singly linked list is a palindrome.
+ * 
+ * @head: Fist parameter 
+ * Return: int 
+ */
 int is_palindrome(listint_t **head)
 {
 	listint_t **start = head;
