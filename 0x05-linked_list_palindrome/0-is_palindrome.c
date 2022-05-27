@@ -2,8 +2,8 @@
 
 /**
  * check_recursively - Recursively moves the pointers to check if palindrome
- * @start: Will move from the start of the list
- * @end: Will move from the end of the list
+ * @start: start - double pointer
+ * @end: end - pointer to the end
  *
  * Return: Either 0 or 1 depending if is a palindrome
  */
