@@ -80,12 +80,29 @@ void free_listint(listint_t *head)
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t **start = head;
-	listint_t *end = *head;
+	listint_t *ini = *head;
+	int i = 0, j = 0;
+	int l[4096];
 
-	if (*head == NULL)
-    {
+	if (head == NULL || *head == NULL)
 		return (1);
-    }
-	return (check_recursively(start, end));
+	while (ini->next)
+		ini = ini->next, i++;
+	ini = *head;
+	while (ini)
+	{
+		l[j] = ini->n;
+		ini = ini->next;
+		j++;
+	}
+	ini = *head;
+	while (ini)
+	{
+		if (ini->n == l[i])
+			ini = ini->next;
+		else
+			return (0);
+		i--;
+	}
+	return (1);
 }
